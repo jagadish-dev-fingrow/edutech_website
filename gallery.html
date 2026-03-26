@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="MN Technologies Skill Development - Gallery of our training sessions, workshops, and student success stories.">
+  <title>Gallery | MN Technologies Skill Development</title>
+  
+  <!-- Google Fonts - Matching original MN Tech style -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  
+  <style>
+    /* ---------- GLOBAL RESET & VARIABLES (MN Tech Theme) ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-purple: #4a148c;
+      --primary-purple-light: #7c43bd;
+      --primary-purple-dark: #12005e;
+      --secondary-blue: #0288d1;
+      --secondary-blue-light: #5eb8ff;
+      --white: #ffffff;
+      --bg-light: #f8f9fc;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+      --success: #10b981;
+      --danger: #ef4444;
+      --warning: #f59e0b;
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --shadow-purple: 0 10px 25px -5px rgba(74, 20, 140, 0.4);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text-main);
+      background-color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    a {
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ----- BUTTON STYLES ----- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-family: var(--font-body);
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+      gap: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-purple), var(--primary-purple-light));
+      color: var(--white);
+      box-shadow: var(--shadow-purple);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px -5px rgba(74, 20, 140, 0.5);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--primary-purple);
+      border: 2px solid var(--primary-purple);
+    }
+
+    .btn-outline:hover {
+      background: var(--primary-purple);
+      color: var(--white);
+    }
+
+    .btn-block {
+      width: 100%;
+    }
+
+    /* ----- BATCH STRIP ----- */
+    .batch-strip {
+      background-color: var(--primary-purple);
+      color: #fff;
+      text-align: center;
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .batch-strip a {
+      text-decoration: underline;
+      font-weight: 600;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* ----- HEADER / NAVBAR (MN Tech Original Style) ----- */
+    .header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: var(--transition);
+      padding: 1rem 0;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-text {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary-purple-dark);
+    }
+
+    .logo-text .highlight {
+      color: var(--secondary-blue);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      font-weight: 500;
+      font-size: 0.9375rem;
+      color: var(--text-main);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary-purple);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary-purple);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-main);
+    }
+
+    /* ----- GALLERY SECTION STYLES ----- */
+    .gallery-hero {
+      background: linear-gradient(135deg, #0b0220 0%, #1e0c4a 50%, #2e1065 100%);
+      padding-top: 5rem;
+    }
+
+    .gallery-hero h1 {
+      font-size: 3rem;
+    }
+
+    .gfilter {
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 0.5rem 1.25rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: var(--transition);
+      border: 1px solid var(--border-color);
+      background: var(--white);
+      color: var(--text-muted);
+    }
+
+    .gfilter.active {
+      background: linear-gradient(135deg, var(--primary-purple), var(--primary-purple-light));
+      color: var(--white);
+      border-color: transparent;
+      box-shadow: var(--shadow-purple);
+    }
+
+    .gfilter:hover:not(.active) {
+      background: var(--bg-light);
+      color: var(--primary-purple);
+      border-color: var(--primary-purple-light);
+    }
+
+    .gallery-grid {
+      columns: 1;
+      column-gap: 1.25rem;
+    }
+
+    @media (min-width: 640px) {
+      .gallery-grid {
+        columns: 2;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .gallery-grid {
+        columns: 3;
+      }
+    }
+
+    .gitem {
+      break-inside: avoid;
+      margin-bottom: 1.25rem;
+      border-radius: 1rem;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .gitem:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .gitem img {
+      width: 100%;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .gitem:hover img {
+      transform: scale(1.03);
+    }
+
+    .gitem-cap {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+      padding: 1rem 0.875rem 0.75rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gitem:hover .gitem-cap {
+      opacity: 1;
+    }
+
+    .gitem-cap p:first-child {
+      font-weight: 700;
+      font-size: 0.875rem;
+      margin-bottom: 0.125rem;
+    }
+
+    /* Lightbox */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.92);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      cursor: pointer;
+    }
+
+    #lightbox.open {
+      display: flex;
+    }
+
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 88vh;
+      border-radius: 1rem;
+      object-fit: contain;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .lb-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: rgba(0, 0, 0, 0.6);
+      border: none;
+      color: white;
+      font-size: 1.75rem;
+      cursor: pointer;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .lb-close:hover {
+      background: var(--danger);
+      transform: rotate(90deg);
+    }
+
+    /* ----- FOOTER (MN Tech Original Style) ----- */
+    .footer {
+      background: var(--text-main);
+      color: var(--white);
+      padding: 4rem 0 0;
+      margin-top: 0;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand .logo-text {
+      color: var(--white);
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .footer-brand p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      max-width: 300px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-icons a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      color: white;
+    }
+
+    .social-icons a:hover {
+      background: var(--primary-purple-light);
+      transform: translateY(-3px);
+    }
+
+    .footer-links h4,
+    .footer-contact h4 {
+      font-size: 1.125rem;
+      margin-bottom: 1.5rem;
+      font-family: var(--font-heading);
+    }
+
+    .footer-links ul,
+    .footer-contact ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+      padding-left: 5px;
+    }
+
+    .footer-contact li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      color: var(--text-muted);
+    }
+
+    .footer-contact li a {
+      color: var(--text-muted);
+    }
+
+    .footer-contact li a:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1.5rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    /* Floating WhatsApp */
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      width: 60px;
+      height: 60px;
+      background-color: #25D366;
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: var(--shadow-lg);
+      z-index: 1000;
+      animation: pulse 2s infinite;
+      transition: var(--transition);
+    }
+
+    .floating-whatsapp:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    /* Modal Popup */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(5px);
+      z-index: 2001;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-container {
+      background: var(--white);
+      width: 90%;
+      max-width: 480px;
+      border-radius: 24px;
+      padding: 2rem;
+      position: relative;
+      transform: translateY(20px) scale(0.95);
+      transition: transform 0.3s ease;
+    }
+
+    .modal-overlay.active .modal-container {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .modal-close:hover {
+      color: var(--danger);
+      transform: rotate(90deg);
+    }
+
+    .modal-header {
+      text-align: center;
+      margin-bottom: 1.8rem;
+    }
+
+    .modal-header h3 {
+      font-size: 1.75rem;
+      color: var(--primary-purple-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .demo-form .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .demo-form input,
+    .demo-form select {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .demo-form input:focus,
+    .demo-form select:focus {
+      outline: none;
+      border-color: var(--primary-purple);
+      box-shadow: 0 0 0 3px rgba(74, 20, 140, 0.1);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links,
+      .nav-actions {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .nav-links.mobile-open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(12px);
+        padding: 1.5rem;
+        box-shadow: var(--shadow-md);
+        gap: 1rem;
+        z-index: 999;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+      }
+
+      .footer-brand p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .social-icons {
+        justify-content: center;
+      }
+
+      .footer-contact li {
+        justify-content: center;
+      }
+
+      .gallery-hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Batch Strip -->
+  <div class="batch-strip">
+    <p>🔥 <strong>Batch Starting Soon!</strong> Enroll now to get early bird access. </p>
+  </div>
+
+  <!-- Header / Navbar (MN Tech Original Style) -->
+  <header class="header" id="header">
+    <div class="container navbar">
+      <div class="logo">
+        <span class="logo-text">MN <span class="highlight">Tech</span></span>
+      </div>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="courses.html">Courses</a>
+        <a href="gallery.html" class="active">Gallery</a>
+        <a href="faq.html">FAQs</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn btn-outline" id="navbarDemoBtn">Free Demo</button>
+      </div>
+      <div class="mobile-menu-btn" id="mobileMenuToggle">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- Gallery Hero Section -->
+  <section class="gallery-hero">
+    <div class="container" style="padding: 4rem 0 3rem; text-align: center;">
+      <span style="color: var(--secondary-blue-light); font-weight: 600; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;">Our Institute</span>
+      <h1 style="color: var(--white); margin-top: 0.75rem; margin-bottom: 1rem;">Gallery</h1>
+      <p style="color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto;">Moments from our classrooms, workshops, and student success celebrations.</p>
+    </div>
+  </section>
+
+  <!-- Gallery Content -->
+  <section style="padding: 4rem 0; background: var(--white);">
+    <div class="container">
+      <!-- Filter Buttons -->
+      <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin-bottom: 3rem;">
+        <button class="gfilter active" data-filter="all">All</button>
+        <button class="gfilter" data-filter="classroom">Classroom</button>
+        <button class="gfilter" data-filter="online">Online Learning</button>
+        <button class="gfilter" data-filter="workshop">Workshops</button>
+        <button class="gfilter" data-filter="coding">Coding Sessions</button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gitem" data-cat="classroom">
+          <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&q=80" alt="Classroom Training" loading="lazy">
+          <div class="gitem-cap"><p style="color:white; font-weight:600;">Classroom Training</p><p style="color:rgba(255,255,255,0.7); font-size:0.7rem;">Full Stack Development</p></div>
+        </div>
+        <div class="gitem" data-cat="online">
+          <img src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=600&q=80" alt="Live Online Sessions" loading="lazy">
+          <div class="gitem-cap"><p style="color:white; font-weight:600;">Live Online Sessions</p><p style="color:rgba(255,255,255,0.7); font-size:0.7rem;">Remote learning</p></div>
+        </div>
+        <div class="gitem" data-cat="coding">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&q=80" alt="Coding Lab" loading="lazy">
+          <div class="gitem-cap"><p style="color:white; font-weight:600;">Coding Lab</p><p style="color:rgba(255,255,255,0.7); font-size:0.7rem;">Python & Data Science</p></div>
+        </div>
+        <div class="gitem" data-cat="workshop">
+          <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&q=80" alt="Industry Workshop" loading="lazy">
+          <div class="gitem-cap"><p style="color:white; font-weight:600;">Industry Workshop</p><p style="color:rgba(255,255,255,0.7); font-size:0.7rem;">Cloud Computing Hands-on</p></div>
+        </div>
+        <div class="gitem" data-cat="classroom">
+          <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=600&q=80" alt="Interactive Classes" loading="lazy">
+          <div class="gitem-cap"><p style="color:white; font-weight:600;">Interactive Classes</p><p style="color:rgba(255,255,255,0.7); font-size:0.7rem;">Java Development Batch</p></div>
+        </div>
+        <div class="gitem" data-cat="online">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80" alt="Group Study Sessions" loading="lazy">
+          <div class="gitem-cap"><p style="color:white; font-weight:600;">Group Study Sessions</p><p style="color:rgba(255,255,255,0.7); font-size:0.7rem;">Collaborative learning</p></div>
+        </div>
+        <div class="gitem" data-cat="coding">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&q=80" alt="Project Development" loading="lazy">
+          <div class="gitem-cap"><p style="color:white; font-weight:600;">Project Development</p><p style="color:rgba(255,255,255,0.7); font-size:0.7rem;">React & Full Stack</p></div>
+        </div>
+        <div class="gitem" data-cat="workshop">
+          <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=600&q=80" alt="Placement Workshop" loading="lazy">
+          <div class="gitem-cap"><p style="color:white; font-weight:600;">Placement Workshop</p><p style="color:rgba(255,255,255,0.7); font-size:0.7rem;">Resume & Interview Prep</p></div>
+        </div>
+        <div class="gitem" data-cat="classroom">
+          <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=600&q=80" alt="Expert-Led Training" loading="lazy">
+          <div class="gitem-cap"><p style="color:white; font-weight:600;">Expert-Led Training</p><p style="color:rgba(255,255,255,0.7); font-size:0.7rem;">Salesforce Development</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" onclick="closeLightbox()">
+    <button class="lb-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
+    <img id="lightboxImg" src="" alt="Gallery">
+  </div>
+
+  <!-- Footer (MN Tech Original Style) -->
+  <footer class="footer" id="contact">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <div class="logo">
+          <span class="logo-text">MN <span class="highlight">Tech</span></span>
+        </div>
+        <p>Your premium skill development institute focused on practical, real-world training. Become job-ready in 40–90 days.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="contact.html">All Courses</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#" id="footerDemoLink">Free Demo</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <ul>
+          <li><i class="fas fa-map-marker-alt"></i> Bangalore, Karnataka</li>
+          <li><i class="fas fa-phone-alt"></i> <a href="tel:+919148112719">+919148112719</a></li>
+          <li><i class="fas fa-envelope"></i> <a href="mailto:Info.mntechnologie@gmail.com">Info.mntechnologie@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 MN Technologies . All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/+919148112719" class="floating-whatsapp" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Demo Modal Popup -->
+  <div class="modal-overlay" id="demoModal">
+    <div class="modal-container">
+      <button class="modal-close" id="closeModalBtn"><i class="fas fa-times"></i></button>
+      <div class="modal-header">
+        <h3>Book Free Demo</h3>
+        <p>Fill in your details. Our expert will reach out to you.</p>
+      </div>
+      <form class="demo-form" id="modalDemoForm">
+        <div class="form-group">
+          <input type="text" id="modalName" placeholder="Full Name" required>
+        </div>
+        <div class="form-group">
+          <input type="tel" id="modalPhone" placeholder="Phone Number" required>
+        </div>
+        <div class="form-group">
+          <select id="modalCourse" required>
+            <option value="" disabled selected>Select Course</option>
+            <option value="SQL Developer">SQL Developer</option>
+            <option value="PL/SQL Developer">PL/SQL Developer</option>
+            <option value="Data Analytics">Data Analytics (Power BI)</option>
+            <option value="Python Developer">Python Developer</option>
+            <option value="Java Full Stack">Java Full Stack / React</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select id="modalSlot" required>
+            <option value="" disabled selected>Preferred Time</option>
+            <option value="Morning">Morning</option>
+            <option value="Afternoon">Afternoon</option>
+            <option value="Evening">Evening</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Confirm Booking</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Gallery Filter & Lightbox
+    const filterBtns = document.querySelectorAll('.gfilter');
+    const galleryItems = document.querySelectorAll('.gitem');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+
+    function filterGallery(category) {
+      galleryItems.forEach(item => {
+        const cat = item.getAttribute('data-cat');
+        if (category === 'all' || cat === category) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filterValue = btn.getAttribute('data-filter');
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        filterGallery(filterValue);
+      });
+    });
+
+    // Lightbox open on image click
+    galleryItems.forEach(item => {
+      item.addEventListener('click', (e) => {
+        const img = item.querySelector('img');
+        if (img) {
+          lightboxImg.src = img.src;
+          lightbox.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Mobile Menu
+    const mobileToggle = document.getElementById('mobileMenuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    if (mobileToggle && navLinks) {
+      mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('mobile-open');
+        const icon = mobileToggle.querySelector('i');
+        if (navLinks.classList.contains('mobile-open')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+    }
+
+    // Modal Functions
+    const modal = document.getElementById('demoModal');
+    const navbarDemoBtn = document.getElementById('navbarDemoBtn');
+    const batchDemoLink = document.getElementById('batchDemoLink');
+    const footerDemoLink = document.getElementById('footerDemoLink');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+
+    function openModal() {
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeModal() {
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    if (navbarDemoBtn) navbarDemoBtn.addEventListener('click', openModal);
+    if (batchDemoLink) batchDemoLink.addEventListener('click', (e) => { e.preventDefault(); openModal(); });
+    if (footerDemoLink) footerDemoLink.addEventListener('click', (e) => { e.preventDefault(); openModal(); });
+    if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+    if (modal) {
+      modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    }
+
+    // Form submission
+    const modalForm = document.getElementById('modalDemoForm');
+    if (modalForm) {
+      modalForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Thank you! Your free demo is booked. Our counselor will contact you shortly.');
+        modalForm.reset();
+        closeModal();
+      });
+    }
+
+    // Sticky header shadow
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
+        header.style.boxShadow = '0 8px 25px rgba(0,0,0,0.08)';
+      } else {
+        header.style.boxShadow = 'var(--shadow-sm)';
+      }
+    });
+  </script>
+</body>
+</html>

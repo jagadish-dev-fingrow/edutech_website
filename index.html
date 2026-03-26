@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MN Technologies Skill Development - Become Job-Ready in 40–90 Days. Real-Time IT Skills with Practical Training.">
+  <title>MN Technologies Skill Development | Become Job-Ready</title>
+  
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Batch Strip -->
+  <div class="batch-strip">
+    <p>🔥 <strong>Batch Starting Soon!</strong> Enroll now to get early bird access. <a href="#courses" class="strip-link"></a></p>
+  </div>
+
+  <!-- Header / Navbar -->
+  <header class="header" id="header">
+    <div class="container navbar">
+      <div class="logo">
+        <span class="logo-text">MN <span class="highlight">Tech</span></span>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="courses.html">Courses</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="faq.html">FAQs</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn btn-outline" onclick="openModal()">Free Demo</button>
+      </div>
+      <div class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-bg-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+    </div>
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="urgency-badge">
+          <i class="fas fa-clock"></i> Limited Time Offer
+        </div>
+        <h1 class="hero-title">Become Job-Ready in <span class="gradient-text">40–90 Days</span></h1>
+        <p class="hero-subtitle">Learn Real-Time IT Skills with Practical Training.</p>
+        
+        <div class="course-tags">
+          <span class="tag">SQL</span>
+          <span class="tag">Data Analytics</span>
+          <span class="tag">Python</span>
+          <span class="tag">Full Stack</span>
+          <span class="tag">Cloud</span>
+        </div>
+        
+        <div class="hero-pricing">
+          <div class="price-item"><i class="fas fa-check-circle"></i> Crash Course: ₹15,000 (40 Days)</div>
+          <div class="price-item"><i class="fas fa-check-circle"></i> Full Course: ₹25,000 (90 Days)</div>
+        </div>
+        
+        <div class="hero-cta">
+          <button class="btn btn-primary" onclick="openModal()">Book Free Demo</button>
+          <a href="tel:+910000000000" class="btn btn-secondary"><i class="fas fa-phone"></i> Call Now</a>
+        </div>
+        
+        <div class="trust-badge">
+          <div class="avatars">
+            <img src="https://ui-avatars.com/api/?name=J&background=random" alt="Student">
+            <img src="https://ui-avatars.com/api/?name=S&background=random" alt="Student">
+            <img src="https://ui-avatars.com/api/?name=A&background=random" alt="Student">
+            <div class="avatar-more">+</div>
+          </div>
+          <div class="trust-text">
+            <strong>1000+</strong> Students Trained
+          </div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="image-wrapper">
+          <img src="assets/hero-image.png" alt="Students Learning Programming" id="hero-img-placeholder" style="display:none;">
+          <div class="hero-illustration">
+             <div class="glass-card float-1">
+                <i class="fab fa-python floating-icon python-color"></i>
+             </div>
+             <div class="glass-card float-2">
+                <i class="fas fa-chart-pie floating-icon bi-color"></i>
+             </div>
+             <div class="glass-card float-3">
+                <i class="fas fa-database floating-icon sql-color"></i>
+             </div>
+             <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1471&auto=format&fit=crop" alt="Students working" class="main-img">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ============================================================
+     MARQUEE — COURSE TAGS
+============================================================ -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <div class="marquee-item"><span class="dot"></span> SQL Developer</div>
+    <div class="marquee-item"><span class="dot"></span> PL/SQL Developer</div>
+    <div class="marquee-item"><span class="dot"></span> ODI / ETL</div>
+    <div class="marquee-item"><span class="dot"></span> Data Analytics</div>
+    <div class="marquee-item"><span class="dot"></span> Power BI</div>
+    <div class="marquee-item"><span class="dot"></span> Python</div>
+    <div class="marquee-item"><span class="dot"></span> Java Full Stack</div>
+    <div class="marquee-item"><span class="dot"></span> React</div>
+    <div class="marquee-item"><span class="dot"></span> Linux Admin</div>
+    <div class="marquee-item"><span class="dot"></span> Cloud AWS</div>
+    <div class="marquee-item"><span class="dot"></span> Production Support</div>
+    <div class="marquee-item"><span class="dot"></span> ServiceNow</div>
+    <!-- Duplicate for seamless loop -->
+    <div class="marquee-item"><span class="dot"></span> SQL Developer</div>
+    <div class="marquee-item"><span class="dot"></span> PL/SQL Developer</div>
+    <div class="marquee-item"><span class="dot"></span> ODI / ETL</div>
+    <div class="marquee-item"><span class="dot"></span> Data Analytics</div>
+    <div class="marquee-item"><span class="dot"></span> Power BI</div>
+    <div class="marquee-item"><span class="dot"></span> Python</div>
+    <div class="marquee-item"><span class="dot"></span> Java Full Stack</div>
+    <div class="marquee-item"><span class="dot"></span> React</div>
+    <div class="marquee-item"><span class="dot"></span> Linux Admin</div>
+    <div class="marquee-item"><span class="dot"></span> Cloud AWS</div>
+    <div class="marquee-item"><span class="dot"></span> Production Support</div>
+    <div class="marquee-item"><span class="dot"></span> ServiceNow</div>
+  </div>
+</div>
+
+  <!-- Clients / Tools Section -->
+  <section class="tools-section">
+  <div class="container">
+    <p class="tools-title">Tools & Technologies You Will Master</p>
+    <div class="tools-grid">
+
+      <div class="tool-item"><i class="fab fa-python"></i> Python</div>
+      <div class="tool-item"><i class="fas fa-database"></i> SQL</div>
+      <div class="tool-item"><i class="fab fa-react"></i> React</div>
+      <div class="tool-item"><i class="fab fa-java"></i> Java</div>
+      <div class="tool-item"><i class="fab fa-linux"></i> Linux</div>
+      <div class="tool-item"><i class="fab fa-aws"></i> AWS</div>
+      <div class="tool-item"><i class="fas fa-chart-bar"></i> Power BI</div>
+
+      <!-- New Added Tools -->
+      <div class="tool-item"><i class="fab fa-js"></i> JavaScript</div>
+      <div class="tool-item"><i class="fab fa-html5"></i> HTML5</div>
+      <div class="tool-item"><i class="fab fa-css3-alt"></i> CSS3</div>
+      <div class="tool-item"><i class="fab fa-node-js"></i> Node.js</div>
+      <div class="tool-item"><i class="fab fa-git-alt"></i> Git</div>
+      <div class="tool-item"><i class="fab fa-github"></i> GitHub</div>
+      <div class="tool-item"><i class="fas fa-code"></i> VS Code</div>
+      <div class="tool-item"><i class="fas fa-cloud"></i> Azure</div>
+      <div class="tool-item"><i class="fas fa-brain"></i> Machine Learning</div>
+      <div class="tool-item"><i class="fas fa-network-wired"></i> Networking</div>
+    </div>
+  </div>
+</section>
+
+  <!-- Trust / Problem Section -->
+  <section class="problem-solution" id="problem">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>Why Most Graduates Face Rejections</h2>
+        <p>The gap between graduation and employment is real. We bridge it.</p>
+      </div>
+      
+      <div class="ps-grid">
+        <div class="problem-card">
+          <div class="icon-box danger">
+            <i class="fas fa-times-circle"></i>
+          </div>
+          <h3>The Problem</h3>
+          <ul class="check-list error-list">
+            <li><i class="fas fa-times"></i> No practical skills</li>
+            <li><i class="fas fa-times"></i> No interview confidence</li>
+            <li><i class="fas fa-times"></i> Only theory-based learning</li>
+          </ul>
+        </div>
+        
+        <div class="vs-badge">VS</div>
+        
+        <div class="solution-card">
+          <div class="icon-box success">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <h3>The MN Tech Solution</h3>
+          <ul class="check-list success-list">
+            <li><i class="fas fa-check"></i> Real-time project-based training</li>
+            <li><i class="fas fa-check"></i> Extensive interview preparation</li>
+            <li><i class="fas fa-check"></i> 100% Practical implementation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Career Path Section -->
+  <section class="career-path" id="career">
+    <div class="container text-center">
+      <h2>Your Career Path</h2>
+      <p class="section-subtitle">From Beginner to Job-Ready Professional</p>
+      
+      <div class="path-timeline">
+        <div class="path-step">
+          <div class="step-icon"><i class="fas fa-user-graduate"></i></div>
+          <div class="step-content">
+            <h4>Beginner</h4>
+            <p>Start from scratch with basics</p>
+          </div>
+        </div>
+        <div class="path-connector"></div>
+        <div class="path-step">
+          <div class="step-icon"><i class="fas fa-laptop-code"></i></div>
+          <div class="step-content">
+            <h4>Learner</h4>
+            <p>Build real-world projects</p>
+          </div>
+        </div>
+        <div class="path-connector"></div>
+        <div class="path-step">
+          <div class="step-icon"><i class="fas fa-briefcase"></i></div>
+          <div class="step-content">
+            <h4>Job-Ready</h4>
+            <p>Clear interviews with confidence</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses Section -->
+  <section class="courses" id="courses">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Premium Courses</h2>
+        <p>Industry-aligned curriculum designed for maximum impact.</p>
+      </div>
+      
+      <div class="courses-grid" id="courses-container">
+        <!-- Course Cards -->
+        <div class="course-card">
+          <div class="card-icon"><i class="fas fa-database"></i></div>
+          <h3>SQL Developer</h3>
+          <p>Master database queries, complex joins, and performance tuning.</p>
+          <div class="course-meta">
+            <span><i class="far fa-clock"></i> 40-90 Days</span>
+            <span><i class="fas fa-bullseye"></i> Data Analyst/DBA</span>
+          </div>
+          <button class="btn btn-outline-full" onclick="openModal('SQL Developer')">Explore Course</button>
+        </div>
+
+        <div class="course-card">
+          <div class="card-icon"><i class="fas fa-server"></i></div>
+          <h3>PL/SQL Developer</h3>
+          <p>Learn advanced procedural SQL, triggers, functions, and database logic.</p>
+          <div class="course-meta">
+            <span><i class="far fa-clock"></i> 40-90 Days</span>
+            <span><i class="fas fa-bullseye"></i> Backend Dev</span>
+          </div>
+          <button class="btn btn-outline-full" onclick="openModal('PL/SQL Developer')">Explore Course</button>
+        </div>
+
+        <div class="course-card">
+          <div class="card-icon"><i class="fas fa-chart-pie"></i></div>
+          <h3>Data Analytics (Power BI)</h3>
+          <p>Transform raw data into beautiful dashboards and actionable insights.</p>
+          <div class="course-meta">
+            <span><i class="far fa-clock"></i> 40-90 Days</span>
+            <span><i class="fas fa-bullseye"></i> BI Analyst</span>
+          </div>
+          <button class="btn btn-outline-full" onclick="openModal('Data Analytics')">Explore Course</button>
+        </div>
+
+        <div class="course-card">
+          <div class="card-icon"><i class="fab fa-python"></i></div>
+          <h3>Python Developer</h3>
+          <p>From basics to advanced scripting, web scraping and API development.</p>
+          <div class="course-meta">
+            <span><i class="far fa-clock"></i> 40-90 Days</span>
+            <span><i class="fas fa-bullseye"></i> Python Dev</span>
+          </div>
+          <button class="btn btn-outline-full" onclick="openModal('Python Developer')">Explore Course</button>
+        </div>
+
+        <div class="course-card">
+          <div class="card-icon"><i class="fab fa-react"></i></div>
+          <h3>Java Full Stack / React</h3>
+          <p>Build end-to-end applications with modern frontend and robust backend.</p>
+          <div class="course-meta">
+            <span><i class="far fa-clock"></i> 40-90 Days</span>
+            <span><i class="fas fa-bullseye"></i> Full Stack Dev</span>
+          </div>
+          <button class="btn btn-outline-full" onclick="openModal('Java Full Stack')">Explore Course</button>
+        </div>
+
+        <div class="course-card">
+          <div class="card-icon"><i class="fab fa-linux"></i></div>
+          <h3>Linux Admin</h3>
+          <p>Master command line, server configuration, shell scripting, and deployment.</p>
+          <div class="course-meta">
+            <span><i class="far fa-clock"></i> 40-90 Days</span>
+            <span><i class="fas fa-bullseye"></i> SysAdmin</span>
+          </div>
+          <button class="btn btn-outline-full" onclick="openModal('Linux Admin')">Explore Course</button>
+        </div>
+
+        <div class="course-card">
+          <div class="card-icon"><i class="fa-solid fa-cloud"></i></div>
+          <h3>Cloud Engineer</h3>
+          <p>Deploy and scale applications securely on modern cloud infrastructure.</p>
+          <div class="course-meta">
+            <span><i class="far fa-clock"></i> 40-90 Days</span>
+            <span><i class="fas fa-bullseye"></i> Cloud Engineer</span>
+          </div>
+          <button class="btn btn-outline-full" onclick="openModal('Cloud Engineer')">Explore Course</button>
+        </div>
+
+        <div class="course-card">
+          <div class="card-icon"><i class="fas fa-cogs"></i></div>
+          <h3>Production Support</h3>
+          <p>Learn incident management, troubleshooting, and continuous support.</p>
+          <div class="course-meta">
+            <span><i class="far fa-clock"></i> 40-90 Days</span>
+            <span><i class="fas fa-bullseye"></i> Support Engineer</span>
+          </div>
+          <button class="btn btn-outline-full" onclick="openModal('Production Support')">Explore Course</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+ <!-- Why Choose Us - Redesigned -->
+<section class="why-choose-us" id="why-us">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Why Choose Us</span>
+      <h2>What Makes <span class="gradient-text">MN Tech</span> Different</h2>
+      <p>We don't just teach — we transform careers with our unique approach to IT training</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-project-diagram"></i>
+        </div>
+        <h3>Real-Time Projects</h3>
+        <p>Work on live industry projects used by actual companies. Build a portfolio that showcases your skills to employers.</p>
+        <div class="feature-link">
+          <span>Learn more</span>
+          <i class="fas fa-arrow-right"></i>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-chalkboard-user"></i>
+        </div>
+        <h3>Expert Trainers</h3>
+        <p>Learn from industry veterans with 8+ years of experience in top MNCs. Get insider knowledge and real-world insights.</p>
+        <div class="feature-link">
+          <span>Learn more</span>
+          <i class="fas fa-arrow-right"></i>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-briefcase"></i>
+        </div>
+        <h3>Placement Support</h3>
+        <p>100% placement assistance with resume building, mock interviews, and direct referrals to our hiring partner network.</p>
+        <div class="feature-link">
+          <span>Learn more</span>
+          <i class="fas fa-arrow-right"></i>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-code-branch"></i>
+        </div>
+        <h3>Daily Practice</h3>
+        <p>Hands-on coding challenges and assignments every day. Regular assessments to track your progress.</p>
+        <div class="feature-link">
+          <span>Learn more</span>
+          <i class="fas fa-arrow-right"></i>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-file-alt"></i>
+        </div>
+        <h3>Resume & LinkedIn</h3>
+        <p>ATS-optimized resume building and LinkedIn profile optimization to attract recruiters and increase visibility.</p>
+        <div class="feature-link">
+          <span>Learn more</span>
+          <i class="fas fa-arrow-right"></i>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-comments"></i>
+        </div>
+        <h3>Mock Interviews</h3>
+        <p>Practice with real interviewers. Get feedback on technical skills, communication, and HR round preparation.</p>
+        <div class="feature-link">
+          <span>Learn more</span>
+          <i class="fas fa-arrow-right"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-banner">
+      <div class="stat-item">
+        <div class="stat-number">500+</div>
+        <div class="stat-label">Students Trained</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">85%</div>
+        <div class="stat-label">Placement Rate</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">9+</div>
+        <div class="stat-label">Courses</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">40+</div>
+        <div class="stat-label">Partner Companies</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+ <!-- Pricing Comparison -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>Course Structures</h2>
+        <p>Choose the track that fits your timeline and goals.</p>
+      </div>
+      
+      <div class="pricing-grid">
+        <!-- Crash Course -->
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3>Crash Course</h3>
+            <div class="price">
+              <span class="currency">₹</span>
+              <span class="amount">15,000</span>
+            </div>
+            <p>Fast-track your learning in 40 Days</p>
+          </div>
+          <div class="pricing-body">
+            <ul class="check-list">
+              <li><i class="fas fa-check"></i> Core Concept Training</li>
+              <li><i class="fas fa-check"></i> 1 Real-time Project</li>
+              <li><i class="fas fa-check"></i> Basic Interview Prep</li>
+              <li><i class="fas fa-check"></i> Daily Assignments</li>
+              <li class="disabled"><i class="fas fa-times"></i> Extensive Mock Interviews</li>
+              <li class="disabled"><i class="fas fa-times"></i> Premium Placement Support</li>
+            </ul>
+            <button class="btn btn-outline" onclick="openModal()">Enroll Now</button>
+          </div>
+        </div>
+        
+        <!-- Full Course -->
+        <div class="pricing-card popular">
+          <div class="popular-badge">Most Popular</div>
+          <div class="pricing-header">
+            <h3>Full Course</h3>
+            <div class="price">
+              <span class="currency">₹</span>
+              <span class="amount">25,000</span>
+            </div>
+            <p>Comprehensive training in 90 Days</p>
+          </div>
+          <div class="pricing-body">
+            <ul class="check-list">
+              <li><i class="fas fa-check"></i> Advanced Concept Training</li>
+              <li><i class="fas fa-check"></i> 3+ Real-time Projects</li>
+              <li><i class="fas fa-check"></i> Intensive Interview Prep</li>
+              <li><i class="fas fa-check"></i> Daily Assignments</li>
+              <li><i class="fas fa-check"></i> Extensive Mock Interviews</li>
+              <li><i class="fas fa-check"></i> 100% Placement Assistance</li>
+            </ul>
+            <button class="btn btn-primary" onclick="openModal()">Enroll Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- How It Works (Steps UI) -->
+  <section class="how-it-works" id="how-it-works">
+  <div class="container">
+    <div class="section-header">
+      <span class="hiw-label">The Process</span>
+      <h2>How it works</h2>
+      <p>A proven 5-step methodology to transform your career.</p>
+    </div>
+
+    <div class="hiw-timeline">
+
+      <div class="hiw-item">
+        <div class="hiw-spine">
+          <div class="hiw-dot">1</div>
+          <div class="hiw-connector"></div>
+        </div>
+        <div class="hiw-content">
+          <div class="hiw-card">
+            <div class="hiw-card-top">
+              <h3 class="hiw-step-title">Enroll</h3>
+              <span class="hiw-step-tag">Day 1</span>
+            </div>
+            <p class="hiw-step-desc">Join the right course based on your background and goals.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hiw-item">
+        <div class="hiw-spine">
+          <div class="hiw-dot">2</div>
+          <div class="hiw-connector"></div>
+        </div>
+        <div class="hiw-content">
+          <div class="hiw-card">
+            <div class="hiw-card-top">
+              <h3 class="hiw-step-title">Learn live</h3>
+              <span class="hiw-step-tag">Daily</span>
+            </div>
+            <p class="hiw-step-desc">Attend daily interactive sessions with industry experts.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hiw-item">
+        <div class="hiw-spine">
+          <div class="hiw-dot">3</div>
+          <div class="hiw-connector"></div>
+        </div>
+        <div class="hiw-content">
+          <div class="hiw-card">
+            <div class="hiw-card-top">
+              <h3 class="hiw-step-title">Work on projects</h3>
+              <span class="hiw-step-tag">Hands-on</span>
+            </div>
+            <p class="hiw-step-desc">Apply tools immediately to real-time scenarios and use cases.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hiw-item">
+        <div class="hiw-spine">
+          <div class="hiw-dot">4</div>
+          <div class="hiw-connector"></div>
+        </div>
+        <div class="hiw-content">
+          <div class="hiw-card">
+            <div class="hiw-card-top">
+              <h3 class="hiw-step-title">Prepare for interviews</h3>
+              <span class="hiw-step-tag">Mock rounds</span>
+            </div>
+            <p class="hiw-step-desc">Rigorous revision, mock interviews, and resume preparation.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hiw-item">
+        <div class="hiw-spine">
+          <div class="hiw-dot">5</div>
+          <div class="hiw-connector"></div>
+        </div>
+        <div class="hiw-content">
+          <div class="hiw-card">
+            <div class="hiw-card-top">
+              <h3 class="hiw-step-title">Get job ready</h3>
+              <span class="hiw-step-tag">100% placement</span>
+            </div>
+            <p class="hiw-step-desc">Start applying with our full placement assistance and network.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- Social Proof -->
+  <section class="testimonials" id="reviews">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>Student Success Stories</h2>
+        <p>Don't just take our word for it. Hear from our alumni.</p>
+      </div>
+      
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="quote">"I was a non-IT background student and was afraid of coding. MN Tech's Data Analytics course was so practical that I landed a job as a BI Analyst in 3 months!"</p>
+          <div class="student-info">
+            <div class="avatar"><img src="https://ui-avatars.com/api/?name=Rahul+K&background=random" alt="Rahul"></div>
+            <div>
+              <h4>Rahul K.</h4>
+              <span>Placed at Tech Mahindra</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="quote">"The real-time projects in the Full Stack course completely changed my perspective. The mock interviews helped me crack my technical round with confidence."</p>
+          <div class="student-info">
+            <div class="avatar"><img src="https://ui-avatars.com/api/?name=Sneha+M&background=random" alt="Sneha"></div>
+            <div>
+              <h4>Sneha M.</h4>
+              <span>Placed at Infosys</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="quote">"If you're looking for practical SQL training, this is the place. No generic theory, just pure coding and problem-solving scenarios."</p>
+          <div class="student-info">
+            <div class="avatar"><img src="https://ui-avatars.com/api/?name=Arun+V&background=random" alt="Arun"></div>
+            <div>
+              <h4>Arun V.</h4>
+              <span>Placed at TCS</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+  <div class="stars">
+    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+  </div>
+  <p class="quote">"The teaching style is very beginner-friendly. I especially loved how each concept was followed by hands-on practice. It helped me switch from a mechanical background to IT smoothly."</p>
+  <div class="student-info">
+    <div class="avatar"><img src="https://ui-avatars.com/api/?name=Priya+S&background=random" alt="Priya"></div>
+    <div>
+      <h4>Priya S.</h4>
+      <span>Placed at Wipro</span>
+    </div>
+  </div>
+</div>
+
+<div class="testimonial-card">
+  <div class="stars">
+    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+  </div>
+  <p class="quote">"The mentorship and doubt-clearing sessions were the biggest advantage. Trainers were always available, and the guidance during projects made a huge difference in my learning."</p>
+  <div class="student-info">
+    <div class="avatar"><img src="https://ui-avatars.com/api/?name=Karthik+R&background=random" alt="Karthik"></div>
+    <div>
+      <h4>Karthik R.</h4>
+      <span>Placed at Capgemini</span>
+    </div>
+  </div>
+</div>
+
+<div class="testimonial-card">
+  <div class="stars">
+    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+  </div>
+  <p class="quote">"I tried multiple online courses before, but this was different. The structured roadmap and real-world case studies made me job-ready. Highly recommended for serious learners."</p>
+  <div class="student-info">
+    <div class="avatar"><img src="https://ui-avatars.com/api/?name=Divya+N&background=random" alt="Divya"></div>
+    <div>
+      <h4>Divya N.</h4>
+      <span>Placed at Cognizant</span>
+    </div>
+  </div>
+</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="container about-container">
+      <div class="about-image">
+         <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=1470&auto=format&fit=crop" alt="MN Technologies Training" class="rounded-img shadow-lg">
+      </div>
+      <div class="about-content">
+        <h2>About MN Technologies</h2><br/>
+        <p>Founded with a singular mission: to eliminate the gap between academic theory and industry requirements.</p>
+        <p>We realized that thousands of talented graduates struggle to find jobs not because they lack potential, but because they lack <strong>practical context</strong>. Our approach focuses 100% on what happens at an actual workplace.</p>
+        
+        <div class="mission-vision">
+          <div class="mv-card">
+            <i class="fas fa-rocket"></i>
+            <div>
+              <h4>Our Mission</h4>
+              <p>To produce highly skilled, job-ready professionals through real-world problem solving.</p>
+            </div>
+          </div>
+          <div class="mv-card">
+            <i class="fas fa-eye"></i>
+            <div>
+              <h4>Our Vision</h4>
+              <p>To be the most trusted career transformation partner for fresher and professionals.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo CTA Section -->
+  <section class="demo-cta">
+    <div class="cta-overlay"></div>
+    <div class="container cta-container">
+      <div class="cta-text">
+        <h2>Ready to Transform Your Career?</h2>
+        <p>Don't wait for opportunities. Create them. Join our upcoming batch and become industry-ready.</p>
+        <ul class="cta-perks">
+          <li><i class="fas fa-check"></i> Free 1-on-1 Counseling</li>
+          <li><i class="fas fa-check"></i> See real class recordings</li>
+          <li><i class="fas fa-check"></i> Talk to our expert trainers</li>
+        </ul>
+      </div>
+      <div class="cta-card">
+        <h3>Book Your Free Demo</h3>
+        <form class="demo-form" id="cta-form">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="Enter your WhatsApp number" required>
+          </div>
+          <div class="form-group">
+            <label for="course">Select Course</label>
+            <select id="course" required>
+              <option value="" disabled selected>Choose a course...</option>
+              <option value="SQL Developer">SQL Developer</option>
+              <option value="PL/SQL Developer">PL/SQL Developer</option>
+              <option value="Data Analytics">Data Analytics (Power BI)</option>
+              <option value="Python Developer">Python Developer</option>
+              <option value="Java Full Stack">Java Full Stack / React</option>
+              <option value="Linux Admin">Linux Admin</option>
+              <option value="Cloud Engineer">Cloud Engineer</option>
+              <option value="Production Support">Production Support</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Book My Demo Now</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="contact">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <div class="logo">
+          <span class="logo-text">MN <span class="highlight">Tech</span></span>
+        </div>
+        <p>Your premium skill development institute focused on practical, real-world training.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="courses.html">All Courses</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="faq.html">FAQs</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <ul>
+          <li><i class="fas fa-map-marker-alt"></i> Bangalore, Karnataka</li>
+          <li><i class="fas fa-phone-alt"></i> <a href="tel:+919148112719">+91 9148112719</a></li>
+          <li><i class="fas fa-envelope"></i> <a href="mailto:Info.mntechnologie@gmail.com">Info.mntechnologie@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 MN Technologies. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Elements -->
+  <a href="https://wa.me/+919148112719 " class="floating-whatsapp" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Demo Modal -->
+  <div class="modal-overlay" id="demo-modal">
+    <div class="modal-container">
+      <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+      <div class="modal-header">
+        <h3>Book Your Free Demo</h3>
+        <p>Leave your details and our counselor will call you.</p>
+      </div>
+      <form class="demo-form modal-form">
+        <div class="form-group">
+          <input type="text" placeholder="Full Name" required>
+        </div>
+        <div class="form-group">
+          <input type="tel" placeholder="Phone Number" required>
+        </div>
+        <div class="form-group">
+          <select required id="modal-course-select">
+            <option value="" disabled selected>Select Course</option>
+            <option value="SQL Developer">SQL Developer</option>
+            <option value="PL/SQL Developer">PL/SQL Developer</option>
+            <option value="Data Analytics">Data Analytics (Power BI)</option>
+            <option value="Python Developer">Python Developer</option>
+            <option value="Java Full Stack">Java Full Stack / React</option>
+            <option value="Linux Admin">Linux Admin</option>
+            <option value="Cloud Engineer">Cloud Engineer</option>
+            <option value="Production Support">Production Support</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select required>
+            <option value="" disabled selected>Preferred Time</option>
+            <option value="Morning">Morning</option>
+            <option value="Afternoon">Afternoon</option>
+            <option value="Evening">Evening</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Confirm Booking</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

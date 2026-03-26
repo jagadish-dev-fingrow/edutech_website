@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MN Technologies | Navbar, Footer & Demo Popup</title>
+  
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* ---------- GLOBAL RESET & VARIABLES ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-purple: #4a148c;
+      --primary-purple-light: #7c43bd;
+      --primary-purple-dark: #12005e;
+      --secondary-blue: #0288d1;
+      --secondary-blue-light: #5eb8ff;
+      --white: #ffffff;
+      --bg-light: #f8f9fc;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+      --success: #10b981;
+      --danger: #ef4444;
+      --warning: #f59e0b;
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --shadow-purple: 0 10px 25px -5px rgba(74, 20, 140, 0.4);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text-main);
+      background: linear-gradient(135deg, #faf9ff 0%, #f0f2fa 100%);
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+    }
+
+    a {
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ----- BUTTON STYLES ----- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-family: var(--font-body);
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+      gap: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-purple), var(--primary-purple-light));
+      color: var(--white);
+      box-shadow: var(--shadow-purple);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px -5px rgba(74, 20, 140, 0.5);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--primary-purple);
+      border: 2px solid var(--primary-purple);
+    }
+
+    .btn-outline:hover {
+      background: var(--primary-purple);
+      color: var(--white);
+    }
+
+    .btn-block {
+      width: 100%;
+    }
+
+    /* ----- BATCH STRIP (Top Banner) ----- */
+    .batch-strip {
+      background-color: var(--warning);
+      color: #fff;
+      text-align: center;
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .batch-strip a {
+      text-decoration: underline;
+      font-weight: 600;
+      color: white;
+      cursor: pointer;
+    }
+
+    .batch-strip a:hover {
+      opacity: 0.9;
+    }
+
+    /* ----- HEADER / NAVBAR ----- */
+    .header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: var(--transition);
+      padding: 1rem 0;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-text {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary-purple-dark);
+    }
+
+    .logo-text .highlight {
+      color: var(--secondary-blue);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      font-weight: 500;
+      font-size: 0.9375rem;
+      color: var(--text-main);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary-purple);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-purple);
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-main);
+    }
+
+    /* ----- MAIN CONTENT AREA (Simple spacer to show layout without demo section) ----- */
+    .main-spacer {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+      text-align: center;
+      background: radial-gradient(circle at 10% 30%, rgba(124, 67, 189, 0.03) 0%, rgba(2, 136, 209, 0.02) 100%);
+    }
+
+    .spacer-card {
+      max-width: 550px;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(8px);
+      padding: 2.5rem;
+      border-radius: 28px;
+      border: 1px solid rgba(124, 67, 189, 0.2);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .spacer-card h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--primary-purple), var(--secondary-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .spacer-card p {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+
+    .demo-trigger-btn {
+      font-size: 1rem;
+      padding: 0.9rem 2rem;
+    }
+
+    /* ----- FOOTER (Full standalone) ----- */
+    .footer {
+      background: var(--text-main);
+      color: var(--white);
+      padding: 4rem 0 0;
+      margin-top: auto;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand .logo-text {
+      color: var(--white);
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .footer-brand p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      max-width: 300px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-icons a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      color: white;
+    }
+
+    .social-icons a:hover {
+      background: var(--primary-purple-light);
+      transform: translateY(-3px);
+    }
+
+    .footer-links h4, .footer-contact h4 {
+      font-size: 1.125rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-links ul, .footer-contact ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+      padding-left: 5px;
+    }
+
+    .footer-contact li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      color: var(--text-muted);
+    }
+
+    .footer-contact li a {
+      color: var(--text-muted);
+    }
+
+    .footer-contact li a:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1.5rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    /* ----- FLOATING WHATSAPP ----- */
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      width: 60px;
+      height: 60px;
+      background-color: #25D366;
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: var(--shadow-lg);
+      z-index: 1000;
+      animation: pulse 2s infinite;
+      transition: var(--transition);
+    }
+
+    .floating-whatsapp:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    /* ----- MODAL / POPUP (Free Demo) ----- */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(6px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-container {
+      background: var(--white);
+      width: 90%;
+      max-width: 480px;
+      border-radius: 28px;
+      padding: 2rem;
+      position: relative;
+      transform: translateY(20px) scale(0.96);
+      transition: transform 0.3s ease, opacity 0.2s;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-overlay.active .modal-container {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+      z-index: 10;
+    }
+
+    .modal-close:hover {
+      color: var(--danger);
+      transform: rotate(90deg);
+    }
+
+    .modal-header {
+      text-align: center;
+      margin-bottom: 1.8rem;
+    }
+
+    .modal-header h3 {
+      font-size: 1.85rem;
+      color: var(--primary-purple-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-header p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .demo-form .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .demo-form input,
+    .demo-form select {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      transition: var(--transition);
+      background: #f9fafb;
+    }
+
+    .demo-form input:focus,
+    .demo-form select:focus {
+      outline: none;
+      border-color: var(--primary-purple);
+      box-shadow: 0 0 0 3px rgba(74, 20, 140, 0.12);
+      background: white;
+    }
+
+    .btn-modal-submit {
+      margin-top: 0.5rem;
+      width: 100%;
+      padding: 0.9rem;
+      font-weight: 700;
+      border-radius: 40px;
+    }
+
+    /* ----- RESPONSIVE ----- */
+    @media (max-width: 768px) {
+      .nav-links, .nav-actions {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .nav-links.mobile-open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(12px);
+        padding: 1.5rem;
+        box-shadow: var(--shadow-md);
+        gap: 1rem;
+        z-index: 999;
+        border-top: 1px solid rgba(0,0,0,0.05);
+      }
+      
+      .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+      }
+      
+      .footer-brand p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .social-icons {
+        justify-content: center;
+      }
+      
+      .footer-contact li {
+        justify-content: center;
+      }
+      
+      .spacer-card {
+        padding: 1.8rem;
+        margin: 0 1rem;
+      }
+      
+      .spacer-card h2 {
+        font-size: 1.6rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .modal-container {
+        padding: 1.5rem;
+      }
+      .modal-header h3 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====================== BATCH STRIP ====================== -->
+  <div class="batch-strip">
+    <p>🔥 <strong>Batch Starting Soon!</strong> Enroll now to get early bird access. <a href="#" id="batchDemoLink">Book Free Demo</a></p>
+  </div>
+
+  <!-- ====================== HEADER / NAVBAR ====================== -->
+  <header class="header" id="header">
+    <div class="container navbar">
+      <div class="logo">
+        <span class="logo-text">MN <span class="highlight">Tech</span></span>
+      </div>
+      <nav class="nav-links" id="navLinks">
+        <a href="#">Home</a>
+        <a href="#">Courses</a>
+        <a href="#">Why Us</a>
+        <a href="#">Pricing</a>
+        <a href="#">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn btn-outline" id="navbarDemoBtn">Free Demo</button>
+      </div>
+      <div class="mobile-menu-btn" id="mobileMenuToggle">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====================== MAIN CONTENT (Replaces previous demo section - clean spacer) ====================== -->
+  <main class="main-spacer">
+    <div class="spacer-card">
+      <h2>Welcome to MN Tech</h2>
+      <p>Your journey to becoming job-ready starts here. Explore our industry-aligned courses and practical training programs.</p>
+      <button class="btn btn-primary demo-trigger-btn" id="heroDemoBtn">
+        <i class="fas fa-graduation-cap"></i> Book Free Demo
+      </button>
+      <div style="margin-top: 1.2rem; font-size: 0.8rem; color: var(--text-muted);">
+        <i class="fas fa-star" style="color: #f59e0b;"></i> Trusted by 1000+ students
+      </div>
+    </div>
+  </main>
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer class="footer" id="contact">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <div class="logo">
+          <span class="logo-text">MN <span class="highlight">Tech</span></span>
+        </div>
+        <p>Your premium skill development institute focused on practical, real-world training. Become job-ready in 40–90 days.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">All Courses</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Testimonials</a></li>
+          <li><a href="#" id="footerDemoLink">Free Demo</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <ul>
+          <li><i class="fas fa-map-marker-alt"></i> Bangalore, Karnataka</li>
+          <li><i class="fas fa-phone-alt"></i> <a href="tel:+910000000000">+91 00000 00000</a></li>
+          <li><i class="fas fa-envelope"></i> <a href="mailto:info@mntech.com">info@mntech.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 MN Technologies Skill Development. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button (Optional) -->
+  <a href="https://wa.me/910000000000" class="floating-whatsapp" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- ====================== MODAL POPUP (Free Demo Booking - Standalone) ====================== -->
+  <div class="modal-overlay" id="demoModal">
+    <div class="modal-container">
+      <button class="modal-close" id="closeModalBtn"><i class="fas fa-times"></i></button>
+      <div class="modal-header">
+        <h3>Book Free Demo</h3>
+        <p>Fill in your details. Our expert will reach out to you within 24 hours.</p>
+      </div>
+      <form class="demo-form" id="modalDemoForm">
+        <div class="form-group">
+          <input type="text" id="modalName" placeholder="Full Name" required>
+        </div>
+        <div class="form-group">
+          <input type="tel" id="modalPhone" placeholder="Phone Number (WhatsApp)" required>
+        </div>
+        <div class="form-group">
+          <select id="modalCourse" required>
+            <option value="" disabled selected>Select your preferred course</option>
+            <option value="SQL Developer">SQL Developer</option>
+            <option value="PL/SQL Developer">PL/SQL Developer</option>
+            <option value="Data Analytics (Power BI)">Data Analytics (Power BI)</option>
+            <option value="Python Developer">Python Developer</option>
+            <option value="Java Full Stack / React">Java Full Stack / React</option>
+            <option value="Linux Admin">Linux Admin</option>
+            <option value="Cloud Engineer">Cloud Engineer</option>
+            <option value="Production Support">Production Support</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select id="modalSlot" required>
+            <option value="" disabled selected>Preferred Time Slot</option>
+            <option value="Morning (10 AM - 12 PM)">Morning (10 AM - 12 PM)</option>
+            <option value="Afternoon (2 PM - 4 PM)">Afternoon (2 PM - 4 PM)</option>
+            <option value="Evening (6 PM - 8 PM)">Evening (6 PM - 8 PM)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block btn-modal-submit">
+          <i class="fas fa-calendar-check"></i> Confirm Demo
+        </button>
+        <p style="font-size: 0.7rem; text-align: center; margin-top: 1rem; color: #6b7280;">
+          * No spam, only scheduling assistance
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      // ---------- DOM Elements ----------
+      const modal = document.getElementById('demoModal');
+      const closeModalBtn = document.getElementById('closeModalBtn');
+      const navbarDemoBtn = document.getElementById('navbarDemoBtn');
+      const heroDemoBtn = document.getElementById('heroDemoBtn');
+      const batchDemoLink = document.getElementById('batchDemoLink');
+      const footerDemoLink = document.getElementById('footerDemoLink');
+      const mobileToggle = document.getElementById('mobileMenuToggle');
+      const navLinks = document.getElementById('navLinks');
+
+      // Helper: open modal
+      function openModal() {
+        if (modal) {
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      }
+
+      // Helper: close modal
+      function closeModal() {
+        if (modal) {
+          modal.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        }
+      }
+
+      // Attach all demo trigger buttons
+      if (navbarDemoBtn) navbarDemoBtn.addEventListener('click', openModal);
+      if (heroDemoBtn) heroDemoBtn.addEventListener('click', openModal);
+      if (batchDemoLink) {
+        batchDemoLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          openModal();
+        });
+      }
+      if (footerDemoLink) {
+        footerDemoLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          openModal();
+        });
+      }
+
+      // Close modal events
+      if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) closeModal();
+        });
+      }
+
+      // Escape key closes modal
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+          closeModal();
+        }
+      });
+
+      // Handle modal form submission
+      const modalForm = document.getElementById('modalDemoForm');
+      if (modalForm) {
+        modalForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          const name = document.getElementById('modalName')?.value.trim() || 'Guest';
+          const phone = document.getElementById('modalPhone')?.value.trim() || '';
+          const course = document.getElementById('modalCourse')?.value || 'any course';
+          const slot = document.getElementById('modalSlot')?.value || 'flexible slot';
+          
+          if (!name || !phone) {
+            alert('Please enter your name and phone number.');
+            return;
+          }
+          
+          alert(`🎉 Thank you ${name}! Your free demo has been booked.\n📞 Phone: ${phone}\n📘 Course: ${course}\n⏰ Slot: ${slot}\n\nOur counselor will contact you shortly.`);
+          
+          modalForm.reset();
+          closeModal();
+        });
+      }
+
+      // ---------- Mobile Menu Logic (Navbar fully functional) ----------
+      if (mobileToggle && navLinks) {
+        mobileToggle.addEventListener('click', (e) => {
+          e.stopPropagation();
+          navLinks.classList.toggle('mobile-open');
+          const icon = mobileToggle.querySelector('i');
+          if (navLinks.classList.contains('mobile-open')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+          } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+        });
+        
+        // Close mobile menu when clicking any nav link
+        const allNavLinks = navLinks.querySelectorAll('a');
+        allNavLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('mobile-open');
+            const icon = mobileToggle.querySelector('i');
+            if (icon) {
+              icon.classList.remove('fa-times');
+              icon.classList.add('fa-bars');
+            }
+          });
+        });
+        
+        // On window resize > 768px, reset mobile menu state
+        window.addEventListener('resize', () => {
+          if (window.innerWidth > 768) {
+            navLinks.classList.remove('mobile-open');
+            const icon = mobileToggle.querySelector('i');
+            if (icon) {
+              icon.classList.remove('fa-times');
+              icon.classList.add('fa-bars');
+            }
+          }
+        });
+      }
+
+      // Optional: Sticky header shadow enhancement
+      const header = document.querySelector('.header');
+      if (header) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 10) {
+            header.style.boxShadow = '0 8px 25px rgba(0,0,0,0.08)';
+          } else {
+            header.style.boxShadow = 'var(--shadow-sm)';
+          }
+        });
+      }
+
+      // Smooth scroll for any anchor links inside footer/nav (if hash targets exist)
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            e.preventDefault();
+            const headerOffset = document.querySelector('.header')?.offsetHeight || 70;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+            // Close mobile menu if open
+            if (navLinks && navLinks.classList.contains('mobile-open')) {
+              navLinks.classList.remove('mobile-open');
+              const icon = mobileToggle?.querySelector('i');
+              if (icon) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+              }
+            }
+          }
+        });
+      });
+      
+      console.log('Navbar, Footer, and Free Demo Popup — fully isolated. Demo section removed.');
+    })();
+  </script>
+</body>
+</html>
